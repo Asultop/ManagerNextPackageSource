@@ -1,0 +1,876 @@
+@Name: BiShip V1
+@Version: V1
+@Author: Yuhan
+@Target: biship
+@Description: Yuhan BiShip CS2 键位配置包
+
+Form{
+    .Id = "config"
+    .Output = "config"
+    .Description = "BiShip 配置"
+    Group{
+        .Title = "绑定"
+        TextField{
+            .Id = using_joystick
+            .Description = "player0_using_joystick"
+            .Text = "player0_using_joystick 0"
+            .Command = "${$(using_joystick).Text}"
+        }
+    }
+    Group{
+        .Title = "个人设置"
+        LineField{
+            .Id = "lineField_m_yaw"
+            .Description = "水平灵敏度"
+            .SubDescription = "m_yaw 设置"
+            .Args{
+                .Arg{
+                    .Id = "m_yaw"
+                    .Description = "m_yaw"
+                    .Value = "0.022"
+                }
+            }
+            .Expression = "alias default.m_yaw m_yaw ${$(m_yaw).Value}"
+        }
+        LineField{
+            .Id = "lineField_m_pitch"
+            .Description = "垂直灵敏度"
+            .SubDescription = "m_pitch 设置"
+            .Args{
+                .Arg{
+                    .Id = "m_pitch"
+                    .Description = "m_pitch"
+                    .Value = "0.022"
+                }
+            }
+            .Expression = "alias default.m_pitch m_pitch ${$(m_pitch).Value}"
+        }
+        LineField{
+            .Id = "lineField_sensitivity"
+            .Description = "灵敏度"
+            .SubDescription = "sensitivity 设置"
+            .Args{
+                .Arg{
+                    .Id = "sensitivity"
+                    .Description = "sensitivity"
+                    .Value = "2.5"
+                }
+            }
+            .Expression = "alias default.sensitivity sensitivity ${$(sensitivity).Value}"
+        }
+        LineField{
+            .Id = "lineField_sensitivity_y_scale"
+            .Description = "y 收缩度设置"
+            .SubDescription = "sensitivity_y_scale 设置"
+            .Args{
+                .Arg{
+                    .Id = "sensitivity_y_scale"
+                    .Description = "sensitivity_y_scale"
+                    .Value = "1.0"
+                }
+            }
+            .Expression = "alias default.sensitivity_y sensitivity_y_scale ${$(sensitivity_y_scale).Value}"
+        }
+        LineField{
+            .Id = "lineField_cl_radialmenu_deadzone_size"
+            .Description = "径向菜单死区大小设置"
+            .SubDescription = "cl_radialmenu_deadzone_size 设置"
+            .Args{
+                .Arg{
+                    .Id = "cl_radialmenu_deadzone_size"
+                    .Description = "cl_radialmenu_deadzone_size"
+                    .Value = "0.4"
+                }
+            }
+            .Expression = "alias default.cl_radialmenu_deadzone_size cl_radialmenu_deadzone_size ${$(cl_radialmenu_deadzone_size).Value}"
+        }
+        LineField{
+            .Id = "lineField_cl_quickinventory_filename"
+            .Description = "客户端快速背包文件名"
+            .SubDescription = "cl_quickinventory_filename 设置"
+            .Args{
+                .Arg{
+                    .Id = "cl_quickinventory_filename"
+                    .Description = "cl_quickinventory_filename"
+                    .Value = "cfg/biship/quickinv/any.txt"
+                }
+            }
+            .Expression = "alias default.cl_quickinventory_filename cl_quickinventory_filename ${$(cl_quickinventory_filename).Value}"
+
+        }
+        TextField{
+            .Id = "TextField_applySettings"
+            .Description = "应用设置"
+            .SubDescription = "应用上述设置"
+            .Text = "已自动应用"
+            .Command = "default.m_yaw\ndefault.m_pitch\ndefault.sensitivity\ndefault.sensitivity_y\n"
+        }
+    }
+    Group{
+        .Title = "快捷指令"
+
+
+        // alias .a exec biship/app
+        OptionField{
+            .Id = "biship_app"
+            .Description = "开启 biship/app 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_app"
+            .Description = "biship/app 快捷指令"
+            .SubDescription = "绑定 biship/app "
+            .Enabled = $(biship_app).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_app"
+                    .Description = "绑定键位"
+                    .Value = ".a"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_app).Value} biship/app"
+        }
+
+        //alias .f exec biship/framework
+        OptionField{
+            .Id = "biship_framework"
+            .Description = "开启 biship/framework 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_framework"
+            .Description = "biship/framework 快捷指令"
+            .SubDescription = "绑定 biship/framework "
+            .Enabled = $(biship_framework).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_framework"
+                    .Description = "绑定键位"
+                    .Value = ".f"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_framework).Value} biship/framework"
+        }
+        //alias .e log_flags Console General InputService -DoNotEcho
+        OptionField{
+            .Id = "log_flags"
+            .Description = "开启 log_flags 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_log_flags"
+            .Description = "log_flags 快捷指令"
+            .SubDescription = "绑定 log_flags "
+            .Enabled = $(log_flags).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_log_flags"
+                    .Description = "绑定键位"
+                    .Value = ".e"
+                }
+            }
+            .Expression = "alias ${$(bindKey_log_flags).Value} log_flags Console General InputService -DoNotEcho"
+        }
+
+        // alias .k exec biship/bind
+        OptionField{
+            .Id = "biship_bind"
+            .Description = "开启 biship/bind 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_bind"
+            .Description = "biship/bind 快捷指令"
+            .SubDescription = "绑定 .k"
+            .Enabled = $(biship_bind).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_bind"
+                    .Description = "绑定键位"
+                    .Value = ".k"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_bind).Value} exec biship/bind"
+        }
+
+        // alias .p exec biship/config
+        OptionField{
+            .Id = "biship_config"
+            .Description = "开启 biship/config 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_config"
+            .Description = "biship/config 快捷指令"
+            .SubDescription = "绑定 .p"
+            .Enabled = $(biship_config).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_config"
+                    .Description = "绑定键位"
+                    .Value = ".p"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_config).Value} exec biship/config"
+        }
+
+        // alias .q "engine_relaunch_app_before_exiting false;quit"
+        OptionField{
+            .Id = "biship_q"
+            .Description = "开启 .q 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_q"
+            .Description = ".q 快捷指令"
+            .SubDescription = "绑定退出并禁用重启"
+            .Enabled = $(biship_q).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_q"
+                    .Description = "绑定键位"
+                    .Value = ".q"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_q).Value} \"engine_relaunch_app_before_exiting false;quit\""
+        }
+
+        // alias .r "engine_relaunch_app_before_exiting true;quit"
+        OptionField{
+            .Id = "biship_r"
+            .Description = "开启 .r 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_r"
+            .Description = ".r 快捷指令"
+            .SubDescription = "绑定退出并保留重启"
+            .Enabled = $(biship_r).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_r"
+                    .Description = "绑定键位"
+                    .Value = ".r"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_r).Value} \"engine_relaunch_app_before_exiting true;quit\""
+        }
+
+        // alias .i exec biship/input
+        OptionField{
+            .Id = "biship_input"
+            .Description = "开启 biship/input 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_input"
+            .Description = "biship/input 快捷指令"
+            .SubDescription = "绑定 .i"
+            .Enabled = $(biship_input).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_input"
+                    .Description = "绑定键位"
+                    .Value = ".i"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_input).Value} exec biship/input"
+        }
+
+        // alias .select ent_fire !self changeteam 0
+        OptionField{
+            .Id = "biship_select"
+            .Description = "开启 .select 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_select"
+            .Description = ".select 快捷指令"
+            .SubDescription = "绑定切换到选边"
+            .Enabled = $(biship_select).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_select"
+                    .Description = "绑定键位"
+                    .Value = ".select"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_select).Value} ent_fire !self changeteam 0"
+        }
+
+        // alias .setspec ent_fire !self changeteam 1
+        OptionField{
+            .Id = "biship_setspec"
+            .Description = "开启 .setspec 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_setspec"
+            .Description = ".setspec 快捷指令"
+            .SubDescription = "绑定旁观"
+            .Enabled = $(biship_setspec).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_setspec"
+                    .Description = "绑定键位"
+                    .Value = ".setspec"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_setspec).Value} ent_fire !self changeteam 1"
+        }
+
+        // alias .sett ent_fire !self changeteam 2
+        OptionField{
+            .Id = "biship_sett"
+            .Description = "开启 .sett 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_sett"
+            .Description = ".sett 快捷指令"
+            .SubDescription = "绑定 T 方"
+            .Enabled = $(biship_sett).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_sett"
+                    .Description = "绑定键位"
+                    .Value = ".sett"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_sett).Value} ent_fire !self changeteam 2"
+        }
+
+        // alias .setct ent_fire !self changeteam 3
+        OptionField{
+            .Id = "biship_setct"
+            .Description = "开启 .setct 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_setct"
+            .Description = ".setct 快捷指令"
+            .SubDescription = "绑定 CT 方"
+            .Enabled = $(biship_setct).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_setct"
+                    .Description = "绑定键位"
+                    .Value = ".setct"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_setct).Value} ent_fire !self changeteam 3"
+        }
+
+        // alias .auto jointeam 0 1
+        OptionField{
+            .Id = "biship_auto"
+            .Description = "开启 .auto 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_auto"
+            .Description = ".auto 快捷指令"
+            .SubDescription = "绑定自动加入队伍"
+            .Enabled = $(biship_auto).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_auto"
+                    .Description = "绑定键位"
+                    .Value = ".auto"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_auto).Value} jointeam 0 1"
+        }
+
+        // alias .ct jointeam 3 1
+        OptionField{
+            .Id = "biship_ct"
+            .Description = "开启 .ct 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_ct"
+            .Description = ".ct 快捷指令"
+            .SubDescription = "绑定 CT 方"
+            .Enabled = $(biship_ct).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_ct"
+                    .Description = "绑定键位"
+                    .Value = ".ct"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_ct).Value} jointeam 3 1"
+        }
+
+        // alias .t jointeam 2 1
+        OptionField{
+            .Id = "biship_t"
+            .Description = "开启 .t 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_t"
+            .Description = ".t 快捷指令"
+            .SubDescription = "绑定 T 方"
+            .Enabled = $(biship_t).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_t"
+                    .Description = "绑定键位"
+                    .Value = ".t"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_t).Value} jointeam 2 1"
+        }
+
+        // alias .spec spectate
+        OptionField{
+            .Id = "biship_spec"
+            .Description = "开启 .spec 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_spec"
+            .Description = ".spec 快捷指令"
+            .SubDescription = "绑定旁观"
+            .Enabled = $(biship_spec).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_spec"
+                    .Description = "绑定键位"
+                    .Value = ".spec"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_spec).Value} spectate"
+        }
+
+        // alias .dbg "sv_radio_throttle_window 0;sv_playerradio_use_allowlist 0"
+        OptionField{
+            .Id = "biship_dbg"
+            .Description = "开启 .dbg 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_dbg"
+            .Description = ".dbg 快捷指令"
+            .SubDescription = "绑定调试命令"
+            .Enabled = $(biship_dbg).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_dbg"
+                    .Description = "绑定键位"
+                    .Value = ".dbg"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_dbg).Value} \"sv_radio_throttle_window 0;sv_playerradio_use_allowlist 0\""
+        }
+
+        // alias .reset panorama_console_position_and_size 524.00|121.00|1000.00|800.00
+        OptionField{
+            .Id = "biship_reset"
+            .Description = "开启 .reset 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_reset"
+            .Description = ".reset 快捷指令"
+            .SubDescription = "绑定控制台位置"
+            .Enabled = $(biship_reset).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_reset"
+                    .Description = "绑定键位"
+                    .Value = ".reset"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_reset).Value} panorama_console_position_and_size 524.00|121.00|1000.00|800.00"
+        }
+
+        // alias ~ exec biship/app/main
+        OptionField{
+            .Id = "biship_main"
+            .Description = "开启 biship/app/main 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_biship_main"
+            .Description = "biship/app/main 快捷指令"
+            .SubDescription = "绑定 ~"
+            .Enabled = $(biship_main).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_biship_main"
+                    .Description = "绑定键位"
+                    .Value = "~"
+                }
+            }
+            .Expression = "alias ${$(bindKey_biship_main).Value} exec biship/app/main"
+        }
+
+        //exec biship/app
+        TextField{
+            .Id = "TextField_applySettings_2"
+            .Description = "应用 biship/app 设置"
+            .SubDescription = "应用上述设置"
+            .Text = "已自动应用"
+            .Command = "exec biship/app"
+        }
+
+        // Generated alias Option/Line fields
+        // alias APP_RELOAD exec biship/app/main
+        OptionField{
+            .Id = "alias_APP_RELOAD"
+            .Description = "开启 alias APP_RELOAD exec biship/app/main 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_alias_APP_RELOAD"
+            .Description = "alias APP_RELOAD exec biship/app/main 快捷指令"
+            .SubDescription = "绑定 键位"
+            .Enabled = $(alias_APP_RELOAD).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_alias_APP_RELOAD"
+                    .Description = "绑定键位"
+                    .Value = "APP_RELOAD"
+                }
+            }
+            .Expression = "alias ${$(bindKey_alias_APP_RELOAD).Value} exec biship/app/main"
+        }
+
+        // alias . internal_reload
+        OptionField{
+            .Id = "alias_dot"
+            .Description = "开启 alias . internal_reload 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_alias_dot"
+            .Description = "alias . internal_reload 快捷指令"
+            .SubDescription = "绑定 键位"
+            .Enabled = $(alias_dot).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_alias_dot"
+                    .Description = "绑定键位"
+                    .Value = "."
+                }
+            }
+            .Expression = "alias ${$(bindKey_alias_dot).Value} internal_reload"
+        }
+
+        // alias , internal_pageprev
+        OptionField{
+            .Id = "alias_comma"
+            .Description = "开启 alias , internal_pageprev 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_alias_comma"
+            .Description = "alias , internal_pageprev 快捷指令"
+            .SubDescription = "绑定 键位"
+            .Enabled = $(alias_comma).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_alias_comma"
+                    .Description = "绑定键位"
+                    .Value = ","
+                }
+            }
+            .Expression = "alias ${$(bindKey_alias_comma).Value} internal_pageprev"
+        }
+
+        // alias y internal_confirm
+        OptionField{
+            .Id = "alias_y"
+            .Description = "开启 alias y internal_confirm 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_alias_y"
+            .Description = "alias y internal_confirm 快捷指令"
+            .SubDescription = "绑定 键位"
+            .Enabled = $(alias_y).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_alias_y"
+                    .Description = "绑定键位"
+                    .Value = "y"
+                }
+            }
+            .Expression = "alias ${$(bindKey_alias_y).Value} internal_confirm"
+        }
+
+        // alias n internal_cancel
+        OptionField{
+            .Id = "alias_n"
+            .Description = "开启 alias n internal_cancel 快捷指令"
+            Options{
+                Option{
+                    .Id = "on"
+                    .Description = "开启"
+                }
+                Option{
+                    .Id = "off"
+                    .Description = "关闭"
+                }
+            }
+            .Selected = "on"
+        }
+        LineField{
+            .Id = "lineField_alias_n"
+            .Description = "alias n internal_cancel 快捷指令"
+            .SubDescription = "绑定 键位"
+            .Enabled = $(alias_n).Selected == "on" ? true : false
+            .Args{
+                .Arg{
+                    .Id = "bindKey_alias_n"
+                    .Description = "绑定键位"
+                    .Value = "n"
+                }
+            }
+            .Expression = "alias ${$(bindKey_alias_n).Value} internal_cancel"
+        }
+        
+        TextField{
+            .Id = "TextField_applySettings_3"
+            .Description = "应用设置"
+            .SubDescription = "应用上述设置"
+            .Text = "已自动应用"
+            .Command = "exec biship/localized/biship\nexec biship/localized/tchinese\nexec biship/theme/biship\n"
+        }
+        
+        
+    }
+}

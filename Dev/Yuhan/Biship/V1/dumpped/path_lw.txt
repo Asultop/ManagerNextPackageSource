@@ -1,0 +1,64 @@
+ADDONS               "game\csgo_addons\" 
+CONFIG               "game\core\config\" 
+CONTENT              "content\csgo_addons\workshop_items\" 
+CONTENT              "content\csgo_lv\" 
+CONTENT              "content\csgo\" 
+CONTENT              "content\csgo_imported\" 
+CONTENT              "content\csgo_core\" 
+CONTENT              "content\core\" 
+CONTENTADDONS        "content\csgo_addons\" 
+CONTENTROOT          "content\" 
+DEFAULT_WRITE_PATH   "game\csgo_addons\workshop_items\" 
+DEFAULT_WRITE_PATH   "game\csgo\pak01.vpk" (vpk) game\csgo\pak01.vpk
+DEFAULT_WRITE_PATH   "game\csgo\" 
+EXECUTABLE_PATH      "game\bin\win64\" 
+EXECUTABLE_PATH      "game\bin\" 
+GAME                 "game\csgo\maps\ui\icon_generation_basic_nuke_bombsitea.vpk" (vpk) game\csgo\maps\ui\icon_generation_basic_nuke_bombsitea.vpk
+GAME                 "game\csgo\maps\ui\match_mvp.vpk" (vpk) game\csgo\maps\ui\match_mvp.vpk
+GAME                 "game\csgo\maps\ui\xpshop_item.vpk" (vpk) game\csgo\maps\ui\xpshop_item.vpk
+GAME                 "game\csgo\maps\ui\buy_menu.vpk" (vpk) game\csgo\maps\ui\buy_menu.vpk
+GAME                 "game\csgo\maps\de_ancient_vanity.vpk" (vpk) game\csgo\maps\de_ancient_vanity.vpk
+GAME                 "game\csgo\maps\graphics_settings.vpk" (vpk) game\csgo\maps\graphics_settings.vpk
+GAME                 "game\csgo\maps\ui\csgo_ui_particle_scene_panel_empty.vpk" (vpk) game\csgo\maps\ui\csgo_ui_particle_scene_panel_empty.vpk
+GAME                 "game\csgo_addons\workshop_items\" 
+GAME                 "game\csgo_lv\pak01.vpk" (vpk) game\csgo_lv\pak01.vpk
+GAME                 "game\csgo\pak01.vpk" (vpk) game\csgo\pak01.vpk
+GAME                 "game\csgo_imported\pak01.vpk" (vpk) game\csgo_imported\pak01.vpk
+GAME                 "game\csgo_core\pak01.vpk" (vpk) game\csgo_core\pak01.vpk
+GAME                 "game\core\pak01.vpk" (vpk) game\core\pak01.vpk
+GAME                 "game\csgo\shaders_vulkan.vpk" (vpk) game\csgo\shaders_vulkan.vpk
+GAME                 "game\csgo_core\shaders_vulkan.vpk" (vpk) game\csgo_core\shaders_vulkan.vpk
+GAME                 "game\core\shaders_vulkan.vpk" (vpk) game\core\shaders_vulkan.vpk
+GAME                 "game\csgo_lv\" 
+GAME                 "game\csgo\" 
+GAME                 "game\csgo_imported\" 
+GAME                 "game\csgo_core\" 
+GAME                 "game\core\" 
+GAMEBIN              "game\csgo\bin\win64\" 
+GAMEBIN              "game\csgo\bin\" 
+GAMEBIN              "game\csgo_imported\bin\win64\" 
+GAMEBIN              "game\csgo_imported\bin\" 
+GAMEBIN              "game\csgo_core\bin\win64\" 
+GAMEBIN              "game\csgo_core\bin\" 
+GAMEBIN              "game\core\bin\win64\" 
+GAMEBIN              "game\core\bin\" 
+GAMEROOT             "game\" 
+LOCAL                "" 
+MOD                  "game\csgo\pak01.vpk" (vpk) game\csgo\pak01.vpk
+MOD                  "game\csgo_imported\pak01.vpk" (vpk) game\csgo_imported\pak01.vpk
+MOD                  "game\csgo_core\pak01.vpk" (vpk) game\csgo_core\pak01.vpk
+MOD                  "game\csgo\" 
+MOD                  "game\csgo_imported\" 
+MOD                  "game\csgo_core\" 
+OFFICIAL_ADDONS      "game\csgo_community_addons\" 
+PLATFORM             "game\core\pak01.vpk" (vpk) game\core\pak01.vpk
+PLATFORM             "game\core\" 
+PLATFORM             "game\bin\win64\platform\" 
+SHADER_SOURCE        "src\shaders\csgo\" 
+SHADER_SOURCE        "src\shaders\csgo_imported\" 
+SHADER_SOURCE        "src\shaders\csgo_core\" 
+SHADER_SOURCE        "src\shaders\core\" 
+SHADER_SOURCE        "src\shaders\csgo_community_addons\" 
+SHADER_SOURCE_MOD    "src\shaders\csgo\" 
+SHADER_SOURCE_ROOT   "src\shaders\" 
+USRLOCAL             "C:\Program Files (x86)\Steam\userdata\0000000000\730\local\" 

@@ -1,0 +1,6 @@
+"Tokens"
+{
+    "Accept_All_Messages"               "接受所有訊息"
+    "Ignore_Broadcast_Messages"         "忽略「所有」訊息"
+    "Ignore_Broadcast_Team_Messages"    "忽略「全體」訊息"
+}

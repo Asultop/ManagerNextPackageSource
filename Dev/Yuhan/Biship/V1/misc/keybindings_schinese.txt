@@ -1,0 +1,6 @@
+"Tokens"
+{
+    "Accept_All_Messages"               "接受所有消息"
+    "Ignore_Broadcast_Messages"         "忽略全局/队内消息"
+    "Ignore_Broadcast_Team_Messages"    "忽略全局消息"
+}

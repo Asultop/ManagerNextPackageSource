@@ -1,0 +1,5 @@
+"settings"
+{
+    TOP_SLOT    MELEE
+    MELEE 1.0
+}
