@@ -4,6 +4,8 @@
 @Target: ForeverRise
 @Description: 恶俗硬汉 适配包.
 @Exec: install.exe
+@LaunchArgs: +exec ForeverRise/setup -testscript "../../csgo/cfg/ForeverRise/Ticker/.vtest"
+
 
 Form{
     .Id = "Function_Preference_Form"
